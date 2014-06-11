@@ -30,13 +30,13 @@ if not exist "%var_mcollective_etc_dir%server.cfg" (
 echo ^
 main_collective = mcollective^
 
-#collectives = mcollective,gotham_collective^
+collectives = mcollective^
 
 libdir = !var_programfilesx86_dir!\MCollective\plugins^
 
 logfile = %var_platform_program_data%\MCollective\var\log\server.log^
 
-loglevel = debug^
+loglevel = info^
 
 daemonize = 1^
 
@@ -44,59 +44,49 @@ daemonize = 1^
 
 securityprovider = psk^
 
-plugin.psk = pass%RANDOM%word^
+plugin.psk = privatepsk^
 
 ^
 
-connector = rabbitmq^
+connector = activemq^
 
 direct_addressing = 1^
 
-plugin.rabbitmq.vhost = mcollective^
+^
+
+plugin.activemq.pool.1.host = puppet^
+
+plugin.activemq.pool.1.user = mcollective^
+
+plugin.activemq.pool.1.password = marionette^
+
+plugin.activemq.pool.1.port = 6163^
 
 ^
 
-plugin.rabbitmq.pool.1.host = rabbitmq.example.com^
-
-plugin.rabbitmq.pool.1.user = joe^
-
-plugin.rabbitmq.pool.1.password = pass%RANDOM%word^
-
-plugin.rabbitmq.pool.1.port = 61613^
+plugin.activemq.pool.size = 1^
 
 ^
 
-plugin.rabbitmq.pool.size = 1^
+factsource = yaml^
 
-^
-
-factsource = facter^
-
-plugin.facter.facterlib = %var_platform_program_data%\PuppetLabs\puppet\var\lib\facter^
-
-^
-
-#identity = %COMPUTERNAME%.example.com^
-
-^
-
-#registerinterval = 600^
-
-#registration = agentlist^
-
-#registration_collective = mcollective^
-
-^
-
-rpcaudit = 1^
-
-rpcauditprovider = logfile^
-
-plugin.rpcaudit.logfile = %var_platform_program_data%\MCollective\var\log\audit.log^
+plugin.yaml = C:\Labatt\IT\Marionette-Collective\etc\facts.yaml^
 
 ^
 
 classesfile = %var_platform_program_data%\PuppetLabs\puppet\var\state\classes.txt^
+
+^
+
+plugin.service.provider = puppet^
+
+^
+
+plugin.puppet.windows_service = puppet^
+
+plugin.puppet.config = %var_platform_program_data%\PuppetLabs\puppet\etc\puppet.conf^
+
+plugin.puppet.command = "!var_programfilesx86_dir!\Puppet Labs\Puppet\bin\puppet.bat" agent^
 
 > "%var_mcollective_etc_dir%server.cfg"
 )
