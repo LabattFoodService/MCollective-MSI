@@ -36,7 +36,6 @@
 							<ServiceInstall 
 								Name='$(var.myProductName)' 
 								DisplayName='$(var.myProductName)' 
-								Name='mcollective' 
 								ErrorControl='normal' 
 								Start='auto' 
 								Type='ownProcess' 
