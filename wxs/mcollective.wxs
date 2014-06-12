@@ -33,8 +33,16 @@
 					<Directory Id='Opt' Name='opt'>
 						<Component Id='Daemon' Guid='59F55255-AE9C-4F2C-ACE9-89432AD065E0'>
 							<File Source='..\opt\service.bat' KeyPath='yes' />
-							<ServiceInstall DisplayName='MCollective' Name='mcollective' ErrorControl='normal' Start='auto' Type='ownProcess' />
-							<ServiceControl Id='MCollective' Start='install' Stop='both' Remove='uninstall' Name='mcollective' Wait='yes' />
+							<ServiceInstall 
+								Name='$(var.myProductName)' 
+								DisplayName='$(var.myProductName)' 
+								Name='mcollective' 
+								ErrorControl='normal' 
+								Start='auto' 
+								Type='ownProcess' 
+								Vital='yes' 
+								Id='ServiceInstaller' />
+							<ServiceControl Id='StartService' Start='install' Stop='both' Remove='uninstall' Name='$(var.myProductName)' Wait='yes' />
 						</Component>
 					</Directory>
 				</Directory>
@@ -44,13 +52,17 @@
 				<Directory Id='CommonAppDataFolder_MCollective' Name='MCollective'>
 					<Directory Id='Etc' Name='etc'>
 						<Component Id='EtcDirectory' Guid='F85D5C40-541E-44B2-99AE-A11CE906CA4C'>
-							<CreateFolder />
+							<CreateFolder>
+								<Permission User="Everyone" GenericAll="yes" />
+							</CreateFolder
 						</Component>
 					</Directory>
 					<Directory Id='Var' Name='var'>
 						<Directory Id='Log' Name='log'>
 							<Component Id='LogDirectory' Guid='412AF20A-9266-40D8-8592-287C6C488FCA'>
-								<CreateFolder />
+								<CreateFolder>
+									<Permission User="Everyone" GenericAll="yes" />
+								</CreateFolder
 							</Component>
 						</Directory>
 					</Directory>
