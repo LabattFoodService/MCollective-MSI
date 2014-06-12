@@ -32,16 +32,17 @@
 					<Directory Id='Etc' Name='etc'>
 						<Component Id='EtcDirectory' Guid='F85D5C40-541E-44B2-99AE-A11CE906CA4C'>
 							<CreateFolder />
+							<RemoveFolder On='uninstall' />
 						</Component>
 					</Directory>
 					<Directory Id='Var' Name='var'>
 						<Directory Id='Log' Name='log'>
 							<Component Id='LogDirectory' Guid='412AF20A-9266-40D8-8592-287C6C488FCA'>
 								<CreateFolder />
+								<RemoveFolder On='uninstall' />
 							</Component>
 						</Directory>
 					</Directory>
-					<RemoveFolder On='uninstall' />
 				</Directory>
 			</Directory>
 		</Directory>
