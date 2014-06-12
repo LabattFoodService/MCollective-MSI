@@ -26,7 +26,6 @@ for /f "usebackq skip=1 tokens=1,2*" %%a in (`reg query %var_puppet_key_name% /v
 set var_mcollective_base_dir=!var_programfilesx86_dir!\MCollective\
 set var_mcollective_etc_dir=%var_platform_program_data%\MCollective\etc\
 
-if not exist "%var_mcollective_etc_dir%server.cfg" (
 echo ^
 main_collective = mcollective^
 
@@ -70,7 +69,7 @@ plugin.activemq.pool.size = 1^
 
 factsource = yaml^
 
-plugin.yaml = C:\Labatt\IT\Marionette-Collective\etc\facts.yaml^
+plugin.yaml = C:\Labatt\mcollective\facts.yaml^
 
 ^
 
@@ -89,7 +88,6 @@ plugin.puppet.config = %var_platform_program_data%\PuppetLabs\puppet\etc\puppet.
 plugin.puppet.command = "!var_programfilesx86_dir!\Puppet Labs\Puppet\bin\puppet.bat" agent^
 
 > "%var_mcollective_etc_dir%server.cfg"
-)
 
 call "%var_puppet_base_dir%bin\environment.bat"
 
