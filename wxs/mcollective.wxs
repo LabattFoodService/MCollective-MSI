@@ -53,7 +53,7 @@
 						<Component Id='EtcDirectory' Guid='F85D5C40-541E-44B2-99AE-A11CE906CA4C'>
 							<CreateFolder>
 								<Permission User="Everyone" GenericAll="yes" />
-							</CreateFolder
+							</CreateFolder>
 						</Component>
 					</Directory>
 					<Directory Id='Var' Name='var'>
@@ -61,7 +61,7 @@
 							<Component Id='LogDirectory' Guid='412AF20A-9266-40D8-8592-287C6C488FCA'>
 								<CreateFolder>
 									<Permission User="Everyone" GenericAll="yes" />
-								</CreateFolder
+								</CreateFolder>
 							</Component>
 						</Directory>
 					</Directory>
