@@ -41,6 +41,7 @@
 							</Component>
 						</Directory>
 					</Directory>
+					<RemoveFolder On='uninstall' />
 				</Directory>
 			</Directory>
 		</Directory>
