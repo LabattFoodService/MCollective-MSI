@@ -32,7 +32,7 @@ main_collective = mcollective^
 
 collectives = mcollective^
 
-libdir = !var_programfilesx86_dir!\MCollective\plugins^
+libdir = "!var_programfilesx86_dir!\MCollective\plugins"^
 
 logfile = %var_platform_program_data%\MCollective\var\log\server.log^
 
